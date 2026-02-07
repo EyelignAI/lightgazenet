@@ -4,15 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="LightGazeNet: A Lightweight GNN-based Architecture for Gaze Estimation" />
+  
+  <meta name="keywords"
+    content="Eye Tracking, Gaze Estimation, LightGazeNet, Graph Neural Network, GNN, Computer Vision, WACV, Lightweight Model, Deep Learning, Appearance-based, Calibration, Cross-dataset Generalization, Research, Paper, EyelignAI, AkesoEyecare" />
+  <meta name="author"
+    content="Heena Patel, Anirban Chowdhury, Pooja Jigar Choksy, Samiksha Pradeep Pachade, Ajinkya Puar" />
+  <meta name="robots" content="index, follow" />
+  
+  <link rel="canonical" href="https://lightgazenet.github.io/" />
   <title>LightGazeNet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <meta property="og:title" content="LightGazeNet" />
-  <meta property="og:description" content="A lightweight GNN framework for appearance-based gaze estimation." />
+  
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content="LightGazeNet: A Lightweight GNN-based Architecture for Gaze Estimation" />
+  <meta property="og:description"
+    content="A lightweight GNN framework for appearance-based gaze estimation. Integrates face/eye appearance, head rotation, 3D eye centers, and calibration via a compact multi-head attention GNN." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lightgazenet.github.io/" />
+  <!-- <meta property="og:image" content="https://lightgazenet.github.io/assets/img/teaser.png" /> -->
+  <meta property="og:site_name" content="LightGazeNet" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LightGazeNet: A Lightweight GNN-based Architecture for Gaze Estimation" />
+  <meta name="twitter:description"
+    content="A lightweight GNN framework for appearance-based gaze estimation. Integrates face/eye appearance, head rotation, 3D eye centers, and calibration via a compact multi-head attention GNN." />
+  <!-- <meta name="twitter:image" content="https://lightgazenet.github.io/assets/img/teaser.png" /> -->
+  <!-- <meta name="twitter:site" content="@akesoeyecare" /> -->
+  <!-- <meta name="twitter:creator" content="@akesoeyecare" /> -->
 </head>
+
 <body>
   <header class="site-header">
     <div class="container">
@@ -39,7 +64,8 @@
           <h2>Accuracy–efficiency gaze estimation with structured graph reasoning.</h2>
           <p class="lead">
             LightGazeNet integrates face/eye appearance, head rotation, 3D eye centers, and calibration information
-            via a compact multi-head attention GNN, achieving strong cross-dataset generalization with only ~3.48M parameters.
+            via a compact multi-head attention GNN, achieving strong cross-dataset generalization with only ~3.48M
+            parameters.
           </p>
 
           <div class="cta">
@@ -64,11 +90,11 @@
 
         <div class="hero-right card">
           <!-- <img class="teaser" src="assets/img/teaser.png" alt="LightGazeNet teaser figure"> -->
-         
+
           <div class="card-body">
             <h3>Authors</h3>
             <p class="authors">
-              Heena Patel · Anirban Chowdhury · Pooja Jigar Choksy · Samiksha Pradeep Pachade · Ajinkya Puar<br/>
+              Heena Patel · Anirban Chowdhury · Pooja Jigar Choksy · Samiksha Pradeep Pachade · Ajinkya Puar<br />
               <span class="affil">Akeso Eyecare, Beijing, China</span>
             </p>
           </div>
@@ -96,7 +122,8 @@
             <div class="card-body">
               <h3>What’s new</h3>
               <ul>
-                <li><b>Graph modeling</b> of heterogeneous gaze cues (appearance + geometry) for explicit relational reasoning.</li>
+                <li><b>Graph modeling</b> of heterogeneous gaze cues (appearance + geometry) for explicit relational
+                  reasoning.</li>
                 <li><b>Multi-head attention GNN</b> to adaptively weight modalities and improve interpretability.</li>
                 <li><b>Lightweight design</b> for practical deployment on resource-constrained devices.</li>
               </ul>
@@ -110,8 +137,8 @@
                 <li><a href="#citation">Citation (BibTeX)</a></li>
                 <li><a href="#code">Code (coming soon)</a></li>
               </ul> -->
-              <!-- <p class="small">If you have supplementary material (poster/video), add them under <code>assets/</code> and link here.</p> -->
-            <!-- </div>
+          <!-- <p class="small">If you have supplementary material (poster/video), add them under <code>assets/</code> and link here.</p> -->
+          <!-- </div>
           </div> -->
         </div>
 
@@ -193,13 +220,39 @@
         <h3 class="mt">Calibration (MPIIFaceGaze)</h3>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Calibration samples (k)</th><th>Angular error (°)</th><th>Improvement</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Calibration samples (k)</th>
+                <th>Angular error (°)</th>
+                <th>Improvement</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Uncalibrated</td><td>3.39</td><td>—</td></tr>
-              <tr><td>1</td><td>3.28</td><td>3.24%</td></tr>
-              <tr><td>9</td><td>3.15</td><td>7.08%</td></tr>
-              <tr><td>16</td><td>3.06</td><td>9.73%</td></tr>
-              <tr><td>32</td><td>2.99</td><td>11.80%</td></tr>
+              <tr>
+                <td>Uncalibrated</td>
+                <td>3.39</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>3.28</td>
+                <td>3.24%</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>3.15</td>
+                <td>7.08%</td>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>3.06</td>
+                <td>9.73%</td>
+              </tr>
+              <tr>
+                <td>32</td>
+                <td>2.99</td>
+                <td>11.80%</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -279,4 +332,5 @@
 
   <script src="assets/js/main.js"></script>
 </body>
+
 </html>
