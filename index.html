@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+  <link rel="stylesheet" href="assets/css/style.css" />
   <meta property="og:title" content="LightGazeNet" />
   <meta property="og:description" content="A lightweight GNN framework for appearance-based gaze estimation." />
   <meta property="og:type" content="website" />
@@ -24,16 +24,16 @@
             <p class="subtitle">A lightweight GNN-based architecture for appearance-based gaze estimation</p>
           </div>
         </div>
-        <!-- <nav class="nav">
-          <a href="#paper">Paper</a>
-          <a href="#method">Method</a>
+        <nav class="nav">
+          <!-- <a href="#paper">Paper</a> -->
+          <!-- <a href="#method">Method</a> -->
           <a href="#results">Results</a>
           <a href="#citation">Citation</a>
           <a href="#contact">Contact</a>
-        </nav> -->
+        </nav>
       </div>
 
-      <!-- <div class="hero">
+      <div class="hero">
         <div class="hero-left">
           <p class="tag">WACV 2026 (accepted)</p>
           <h2>Accuracy–efficiency gaze estimation with structured graph reasoning.</h2>
@@ -43,9 +43,11 @@
           </p>
 
           <div class="cta">
-            <a class="btn primary" href="assets/paper/paper.pdf" target="_blank" rel="noopener">View PDF</a>
-            <a class="btn" href="#citation">Copy BibTeX</a>
+            <!-- <a class="btn primary" href="assets/paper/paper.pdf" target="_blank" rel="noopener">PDF (coming soon)</a> -->
+            <a class="btn primary" href="#paper">PDF (coming soon)</a>
             <a class="btn" href="#code">Code (coming soon)</a>
+            <a class="btn" href="#citation">BibTeX</a>
+            <a class="btn" href="#contact">Email</a>
           </div>
 
           <div class="metrics">
@@ -61,7 +63,7 @@
         </div>
 
         <div class="hero-right card">
-          <img class="teaser" src="assets/img/teaser.png" alt="LightGazeNet teaser figure">
+          <!-- <img class="teaser" src="assets/img/teaser.png" alt="LightGazeNet teaser figure"> -->
          
           <div class="card-body">
             <h3>Authors</h3>
@@ -69,20 +71,212 @@
               Heena Patel · Anirban Chowdhury · Pooja Jigar Choksy · Samiksha Pradeep Pachade · Ajinkya Puar<br/>
               <span class="affil">Akeso Eyecare, Beijing, China</span>
             </p>
-
-            <div class="links">
-              <a class="pill" href="assets/paper/paper.pdf" target="_blank" rel="noopener">PDF</a>
-              <a class="pill" href="#citation">BibTeX</a>
-              <a class="pill" href="#code">Code (coming soon)</a>
-              <a class="pill" href="#contact">Email</a>
-            </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
     </div>
   </header>
 
-  
+  <main>
+    <section id="paper" class="section">
+      <div class="container">
+        <h2>Abstract</h2>
+        <p>
+          Gaze estimation requires balancing accuracy and efficiency for real-world deployment.
+          We introduce <b>LightGazeNet</b>, a lightweight Graph Neural Network (GNN) framework that integrates
+          multi-modal inputs—facial features, eye cues, 3D eye centers, head pose, and calibration data—
+          within a compact graph-based architecture. Using multi-head attention for context-aware fusion,
+          LightGazeNet achieves competitive or superior accuracy with significantly fewer parameters and strong
+          cross-dataset generalization.
+        </p>
+
+        <div class="grid2">
+          <div class="card">
+            <div class="card-body">
+              <h3>What’s new</h3>
+              <ul>
+                <li><b>Graph modeling</b> of heterogeneous gaze cues (appearance + geometry) for explicit relational reasoning.</li>
+                <li><b>Multi-head attention GNN</b> to adaptively weight modalities and improve interpretability.</li>
+                <li><b>Lightweight design</b> for practical deployment on resource-constrained devices.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="card">
+            <div class="card-body">
+              <h3>Quick links</h3>
+              <ul>
+                <li><a href="assets/paper/paper.pdf" target="_blank" rel="noopener">Download paper (PDF)</a></li>
+                <li><a href="#citation">Citation (BibTeX)</a></li>
+                <li><a href="#code">Code (coming soon)</a></li>
+              </ul> -->
+              <!-- <p class="small">If you have supplementary material (poster/video), add them under <code>assets/</code> and link here.</p> -->
+            <!-- </div>
+          </div> -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- <section id="method" class="section alt">
+      <div class="container">
+        <h2>Method</h2>
+        <div class="grid2">
+          <div>
+            <p class="lead">
+              LightGazeNet builds a fully connected graph of modality nodes (left/right eye, face, head rotation, left/right 3D eye position),
+              projects all modalities into a shared embedding, and performs two-layer multi-head attention graph reasoning.
+            </p>
+            <ol class="steps">
+              <li><b>Feature encoding & projection</b>: lightweight MobileNetV3-Small for images; linear layers for geometric inputs.</li>
+              <li><b>Graph construction</b>: 6-node fully connected graph where edges represent inter-modal dependencies.</li>
+              <li><b>GNN reasoning</b>: multi-head attention updates node features; flattened graph embedding feeds regression head.</li>
+              <li><b>Calibration</b>: subject-specific embedding for efficient personalization (few-shot calibration).</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3>Inputs</h3>
+              <ul class="bullets">
+                <li>Face image (normalized crop)</li>
+                <li>Left eye crop, Right eye crop</li>
+                <li>Head rotation vector (9D)</li>
+                <li>3D eye center positions (left/right)</li>
+                <li>Calibration embedding (optional)</li>
+              </ul>
+
+              <h3 style="margin-top:18px;">Output</h3>
+              <p class="small">
+                Regress pitch & yaw; optionally reconstruct 3D gaze direction via spherical-to-Cartesian transform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="results" class="section">
+      <div class="container">
+        <h2>Results</h2>
+        <p class="lead">
+          LightGazeNet is designed for strong accuracy–efficiency trade-offs and robust generalization.
+          Below are key headline numbers from the paper.
+        </p>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="card-body">
+              <h3>MPIIFaceGaze</h3>
+              <p class="big">3.06°</p>
+              <p class="small">Mean angular error (leave-one-subject-out). Calibration further improves performance.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3>EyeDiap</h3>
+              <p class="big">2.91°</p>
+              <p class="small">Mean angular error under standard evaluation protocol.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h3>GazeCapture</h3>
+              <p class="big">1.69 cm</p>
+              <p class="small">Overall distance error across devices (phone+tablet).</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt">Calibration (MPIIFaceGaze)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Calibration samples (k)</th><th>Angular error (°)</th><th>Improvement</th></tr></thead>
+            <tbody>
+              <tr><td>Uncalibrated</td><td>3.39</td><td>—</td></tr>
+              <tr><td>1</td><td>3.28</td><td>3.24%</td></tr>
+              <tr><td>9</td><td>3.15</td><td>7.08%</td></tr>
+              <tr><td>16</td><td>3.06</td><td>9.73%</td></tr>
+              <tr><td>32</td><td>2.99</td><td>11.80%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- <h3 class="mt">Read the paper</h3>
+        <div class="pdf card">
+          <div class="card-body">
+            <p class="small">If GitHub Pages blocks embedded PDFs in some browsers, use the “View PDF” button above.</p>
+            <iframe title="LightGazeNet paper" src="assets/paper/paper.pdf#view=FitH" loading="lazy"></iframe>
+          </div>
+        </div> -->
+
+      </div>
+    </section>
+
+    <!-- <section id="code" class="section alt">
+      <div class="container">
+        <h2>Code</h2>
+        <p class="lead">
+          Add your repo link here when ready. Suggested structure:
+        </p>
+        <pre class="codeblock">lightgazenet/
+  ├─ configs/
+  ├─ data/
+  ├─ lgn/
+  ├─ scripts/
+  ├─ train.py
+  ├─ eval.py
+  └─ README.md</pre>
+        <p class="small">
+          Replace this section with badges (PyTorch, PapersWithCode), training commands, pretrained checkpoints, and demo instructions.
+        </p>
+      </div>
+    </section> -->
+
+    <section id="citation" class="section">
+      <div class="container">
+        <h2>Citation</h2>
+        <!-- <p class="small">Use this BibTeX entry (update venue/DOI/arXiv once finalized):</p> -->
+
+        <div class="bib card">
+          <div class="card-body">
+            <button class="btn small copy" data-copy-target="#bibtex">Copy BibTeX</button>
+            <br /><br />
+            <pre id="bibtex">@inproceedings{LightGazeNet2026,
+  title     = {LightGazeNet: A Lightweight GNN-based Architecture for Gaze Estimation},
+  author    = {Patel, Heena and Chowdhury, Anirban and Choksy, Pooja Jigar and Pachade, Samiksha Pradeep and Puar, Ajinkya},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026},
+  note      = {Accepted},
+}</pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">Questions, collaborations, or requests:</p>
+        <div class="card">
+          <div class="card-body">
+            <p class="small">
+              Email: <a href="mailto:eyelignai@akesoeyecare.com">eyelignai@akesoeyecare.com</a>
+            </p>
+            <p class="small">Affiliation: Akeso Eyecare, Beijing, China</p>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p class="small">© <span id="year"></span> LightGazeNet</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

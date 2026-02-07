@@ -1,0 +1,244 @@
+:root{
+  --bg:#0b0f17;
+  --bg2:#0f1624;
+  --card:#121a2b;
+  --text:#e6eaf2;
+  --muted:#aeb7c8;
+  --line:#26314a;
+  --accent:#8bd3ff;
+  --accent2:#b5ffcc;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+  --max: 1100px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;max-width:100%;overflow-x: hidden;}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 700px at 15% 10%, rgba(139,211,255,.25), transparent 60%),
+              radial-gradient(900px 600px at 85% 15%, rgba(181,255,204,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg), #070a10 65%);
+  line-height:1.55;
+}
+
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+code{background:rgba(255,255,255,.06); padding:.15rem .35rem; border-radius:8px; border:1px solid rgba(255,255,255,.08)}
+pre{margin:0}
+
+.container{max-width:var(--max); margin:0 auto; padding:28px 18px}
+.site-header{padding:18px 0 8px}
+.topline{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+.brand{display:flex; align-items:center; gap:14px}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;
+  background: linear-gradient(135deg, rgba(139,211,255,.22), rgba(181,255,204,.14));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+  font-weight:800; letter-spacing:.5px;
+}
+h1{margin:0; font-size:1.15rem}
+.subtitle{margin:4px 0 0; color:var(--muted); font-size:.95rem}
+
+.nav{display:flex; gap:14px; flex-wrap:wrap}
+.nav a{color:var(--muted); font-weight:600; font-size:.95rem}
+.nav a:hover{color:var(--text); text-decoration:none}
+
+.hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; margin-top:18px; align-items:stretch}
+@media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+
+/* ===============================
+   Teaser image responsive fix
+   =============================== */
+.teaser,
+.teaser img,
+img.teaser {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   Optional: constrain max visual size
+   (prevents it from looking huge on
+   wide screens)
+   =============================== */
+.teaser {
+    max-width: 960px;   /* adjust: 720 / 800 / 960 */
+    padding: 0 16px;    /* small side padding for mobile */
+}
+
+/* ===============================
+   Safety: images should never
+   overflow containers
+   =============================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tag{
+  display:inline-block;
+  padding:.25rem .6rem;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  color:var(--muted);
+  font-weight:600;
+  font-size:.85rem;
+  background: rgba(255,255,255,.04);
+}
+
+h2{margin:12px 0 10px; font-size:2.05rem; line-height:1.15}
+.lead{color:#d6dcee; font-size:1.05rem}
+.note{color:var(--muted); font-size:.92rem; margin-top:14px}
+
+.cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:.65rem 1rem;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color:var(--text);
+  font-weight:700;
+  box-shadow: 0 8px 18px rgba(0,0,0,.22);
+}
+.btn:hover{transform: translateY(-1px); text-decoration:none}
+.btn.primary{
+  background: linear-gradient(135deg, rgba(139,211,255,.30), rgba(181,255,204,.18));
+  border-color: rgba(139,211,255,.35);
+}
+.btn.small{padding:.45rem .75rem; border-radius:12px; font-weight:700; font-size:.92rem}
+
+.metrics{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:16px}
+@media (max-width: 620px){ .metrics{grid-template-columns:1fr} }
+.metric{
+  padding:12px 12px;
+  border-radius: var(--radius);
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+}
+.metric-k{font-size:1.35rem; font-weight:800}
+.metric-v{color:var(--muted); font-size:.92rem}
+
+.section{padding:28px 0}
+.section.alt{background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0)); border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05)}
+.section h2{font-size:1.65rem}
+
+.card{
+  background: rgba(18,26,43,.75);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card-body{padding:16px 16px}
+.authors{color:#d6dcee; margin:0}
+.affil{color:var(--muted)}
+.links{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+.pill{
+  padding:.35rem .65rem;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color:var(--muted);
+  font-weight:700;
+  font-size:.9rem;
+}
+.pill:hover{color:var(--text); text-decoration:none}
+
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px}
+@media (max-width: 900px){ .grid2{grid-template-columns:1fr} }
+
+.grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:14px}
+@media (max-width: 900px){ .grid3{grid-template-columns:1fr} }
+
+.steps{margin:10px 0 0 1.1rem}
+.steps li{margin:.4rem 0}
+.bullets{margin:.4rem 0 0 1.1rem}
+.bullets li{margin:.25rem 0}
+
+.big{font-size:1.8rem; font-weight:900; margin:.2rem 0}
+.small{color:var(--muted); font-size:.95rem}
+.mt{margin-top:20px}
+
+.table-wrap{overflow:auto; border-radius: var(--radius); border:1px solid rgba(255,255,255,.10)}
+table{width:100%; border-collapse:collapse; min-width:520px; background: rgba(0,0,0,.12)}
+th,td{padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.08); text-align:left}
+th{color:#dfe6f5; font-weight:800; background: rgba(255,255,255,.04)}
+tr:last-child td{border-bottom:0}
+
+.pdf iframe{width:100%; height:680px; border:0; border-radius: 14px; margin-top:10px; background:rgba(0,0,0,.2)}
+@media (max-width: 620px){ .pdf iframe{height:520px} }
+
+.codeblock{
+  padding:14px;
+  border-radius: var(--radius);
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  overflow:auto;
+}
+
+/* ===============================
+   Responsive BibTeX block
+   =============================== */
+.bibtex,
+pre,
+pre code {
+    white-space: pre-wrap;        /* allow wrapping */
+    word-wrap: break-word;        /* legacy support */
+    overflow-wrap: anywhere;      /* modern browsers */
+    overflow-x: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   BibTeX visual styling
+   =============================== */
+.bibtex {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ===============================
+   Prevent copy button overlap
+   =============================== */
+.bibtex-wrapper {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* ===============================
+   Mobile optimization
+   =============================== */
+@media (max-width: 768px) {
+    .bibtex {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+}
+
+.callout{
+  margin-top:16px;
+  padding:12px 14px;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(139,211,255,.35);
+  background: rgba(139,211,255,.06);
+  color:#dbeeff;
+}
+
+.footer{margin-top:16px; padding-top:10px; border-top:1px solid rgba(255,255,255,.08)}
+.dot{margin:0 .55rem; color:rgba(255,255,255,.25)}
+
